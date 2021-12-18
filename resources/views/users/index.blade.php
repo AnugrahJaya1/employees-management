@@ -36,7 +36,11 @@
                         <td>{{$user->email}}</td>
                         <td>
                             <div class="btn-group">
-                                <a href="{{route('users.edit', $user->id)}}" class="btn btn-success mr-2">Edit</a>
+                            <a href="{{route('users.edit', $user->id)}}" class="mr-2">
+                                <button class="btn btn-success">
+                                    Edit
+                                </button>
+                                </a>
                                 <form method="POST" action="{{route('users.destroy', $user->id)}}">
                                     @csrf
                                     @method('DELETE')
