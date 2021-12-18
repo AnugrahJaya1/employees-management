@@ -12,12 +12,8 @@
     <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
-            integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" 
-            crossorigin="anonymous" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin.min.css') }}" rel="stylesheet">
@@ -52,8 +48,7 @@
 
             <!-- Nav Item - System Management Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystemManagement"
-                    aria-expanded="true" aria-controls="collapseSystemManagement">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystemManagement" aria-expanded="true" aria-controls="collapseSystemManagement">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>System Management</span>
                 </a>
@@ -69,13 +64,11 @@
 
             <!-- Nav Item - User Management Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUserManagement"
-                    aria-expanded="true" aria-controls="collapseUserManagement">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUserManagement" aria-expanded="true" aria-controls="collapseUserManagement">
                     <i class="fas fa-fw fa-user"></i>
                     <span>User Management</span>
                 </a>
-                <div id="collapseUserManagement" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUserManagement" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('/users')}}">User</a>
                         <a class="collapse-item" href="{{url('/roles')}}">Role</a>
@@ -105,18 +98,21 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->username}}</span>
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    {{ __('Logout') }}
                                 </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
                             </div>
                         </li>
                     </ul>
@@ -134,7 +130,7 @@
 
                     <div class="row">
                         @yield('content')
-                    </div> 
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->
