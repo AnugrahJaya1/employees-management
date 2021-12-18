@@ -8,6 +8,13 @@
 
 <div class="row">
     <div class="card mx-auto">
+        <div>
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{session('message')}}
+            </div>
+            @endif
+        </div>
         <div class="card-header">
             <a href="{{route('users.create')}}" class="float-right">Create</a>
         </div>
@@ -18,7 +25,7 @@
                         <th scope="col">#Id</th>
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Manage</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +34,19 @@
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->username}}</td>
                         <td>{{$user->email}}</td>
-                        <td>Edit/Delete</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{route('users.edit', $user->id)}}" class="btn btn-success mr-2">Edit</a>
+                                <form method="POST" action="{{route('users.destroy', $user->id)}}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
