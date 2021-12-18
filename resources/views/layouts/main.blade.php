@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Employee Management -->
             <li class="nav-item">
-                <a class="nav-link" href="/employee-management">
+                <a class="nav-link" href="{{ url('/employee-management') }}">
                     <span>Employee Management</span></a>
             </li>
 
@@ -59,10 +59,10 @@
                 </a>
                 <div id="collapseSystemManagement" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/countries">Country</a>
-                        <a class="collapse-item" href="/states">State</a>
-                        <a class="collapse-item" href="/departments">Department</a>
-                        <a class="collapse-item" href="/cities">City</a>
+                        <a class="collapse-item" href="{{url('/countries')}}">Country</a>
+                        <a class="collapse-item" href="{{url('/states')}}">State</a>
+                        <a class="collapse-item" href="{{url('/departments')}}">Department</a>
+                        <a class="collapse-item" href="{{url('/cities')}}">City</a>
                     </div>
                 </div>
             </li>
@@ -77,9 +77,9 @@
                 <div id="collapseUserManagement" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/users">User</a>
-                        <a class="collapse-item" href="/roles">Role</a>
-                        <a class="collapse-item" href="/permissions">Permission</a>
+                        <a class="collapse-item" href="{{url('/users')}}">User</a>
+                        <a class="collapse-item" href="{{url('/roles')}}">Role</a>
+                        <a class="collapse-item" href="{{url('/permissions')}}">Permission</a>
                     </div>
                 </div>
             </li>
