@@ -55,7 +55,7 @@
                 <div id="collapseSystemManagement" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{route('countries.index')}}">Country</a>
-                        <a class="collapse-item" href="{{url('/states')}}">State</a>
+                        <a class="collapse-item" href="{{route('states.index')}}">State</a>
                         <a class="collapse-item" href="{{url('/departments')}}">Department</a>
                         <a class="collapse-item" href="{{url('/cities')}}">City</a>
                     </div>
